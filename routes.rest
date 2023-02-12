@@ -1,0 +1,45 @@
+GET http://localhost:8080/
+###
+GET http://localhost:8080/cirriculum
+###
+
+### Create contact
+POST http://localhost:8080/curriculum HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Señora YYY",
+    "lastname":"Sikedisoa",
+    "edad":37,
+    "casado":true,
+    "hijos":true,
+    "ultimoempleo":"Duran",
+    "gustos":
+        [
+            "Cocinar",
+            "comer encebollado"
+        ]
+}
+
+### PUT contact
+PUT http://localhost:8080/curriculum/63e16ec9fb4f5d3bf5120485 HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Francisco",
+    "lastname":"Calvario",
+    "edad":50,
+    "casado":"false",
+    "hijos":true,
+    "ultimoempleo":"MUNICIPIO",
+    "gustos":
+        [
+            "Cocinar",
+            "comer",
+            "encebollado"
+        ]
+}
+
+
+### DELETE contact
+DELETE http://localhost:8080/curriculum/63e14aef9446a7b8078ff7f9 HTTP/1.1

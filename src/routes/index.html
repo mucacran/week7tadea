@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="Shortcut Icon" type="image/x-icon" href="https://solucionesdigitalessb.com/favicon.ico" />
+    <title>Tarea de la Semana 5</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <section class="mb-5">
+        <h1 class="my-3">Lesson 5:Alternativas REST y JSON</h1>
+        <div class="row">
+          <div class="col">
+            <h2>Referencias</h2>
+            <div class="list-group">
+              <a
+                href="https://cse341.netlify.app/lesson6/reading"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+                >Lectura</a
+              >
+              <a
+                href="https://cse341.netlify.app/lesson6/assignment"
+                class="list-group-item list-group-item-action"
+                target="_blank"
+                >Tarea</a
+              >
+            </div>
+          </div>
+          <div class="col">
+            <h2>Menu</h2>
+            <div class="list-group">
+              <a href="/curriculum" class="list-group-item list-group-item-action" target="_blank">Curriculum</a>
+              <a href="/swagger/api-docs/" class="list-group-item list-group-item-action" target="_blank">Swagger</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mb-5 m-auto" style="width: auto; max-width: 800px; height: 100%">
+        <h3>Create a new contact. All fields are required.</h3>
+        <div class="card bg-light">
+          <div class="card-body">
+            <form action="/curriculum" method="post">
+
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                  <label for="name" class="form-label">First Name</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    id="formGroupExampleInput"
+                    name="name"
+                    placeholder="Example Sergio"
+                  />
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
+                  <label for="lastname" class="form-label">Last Name</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    id="formGroupExampleInput2"
+                    name="lastname"
+                    placeholder="Example Bravo"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-3">
+                  <label for="edad" class="form-label">Edad</label>
+                  <input
+                    required
+                    type="number"
+                    class="form-control"
+                    id="formGroupExampleInput2"
+                    name="edad"
+                    placeholder="Example red"
+                    style="height: 39px"
+                  />
+                </div>
+  
+                <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-3">
+                  <div class="form-label">casado</div>
+                  <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="casado" id="yesRadio" value="true">
+                    <label class="form-check-label" for="yesRadio">Sí</label>
+                  </div>
+                  
+                  <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="casado" id="noRadio" value="false">
+                    <label class="form-check-label" for="noRadio">No</label>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+                  <div class="form-label">Hijos</div>
+                  <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="hijos" id="siHijos" value="true">
+                    <label class="form-check-label" for="siHijos">Sí</label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input type="radio" class="form-check-input" name="hijos" id="noHijos" value="false">
+                    <label class="form-check-label" for="noHijos">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="ultimoempleo" class="form-label">Ultimo Trabajo</label>
+                  <input
+                    required
+                    type="text"
+                    class="form-control"
+                    id="ultimoempleo"
+                    name="ultimoempleo"
+                    placeholder="Duran"
+                  />
+                </div>
+
+
+                <div class="col">
+                  <div class="form-group">
+                    <label for="gustos" class="form-label">Hobys:</label>
+                    <input type="text" class="form-control" id="words" name="gustos">
+                  </div>
+                  <div id="word-list" class="py-2">
+                    <!-- Aquí se mostrarán las píldoras -->
+                  </div>
+                </div>
+
+                
+
+
+
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </section>
+     
+    </div>
+    <script>
+      document.querySelector("#words").addEventListener("keyup", function(event) {
+        let words = event.target.value.split(",");
+        let wordList = document.querySelector("#word-list");
+        wordList.innerHTML = "";
+        words.forEach(function(word) {
+          let pill = document.createElement("span");
+          pill.classList.add("badge", "rounded-pill", "bg-primary","me-1");
+          pill.innerHTML = word.trim();
+          wordList.appendChild(pill);
+        });
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
