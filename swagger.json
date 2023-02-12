@@ -5,10 +5,10 @@
     "description": "Poder trabajar",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "week6-tarea.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/": {

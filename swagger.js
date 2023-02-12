@@ -5,8 +5,8 @@ const doc = {
     title: 'My API - Week 6',
     description: 'Poder trabajar'
   },
-  host: 'localhost:8080',
-  schemes: ['http']
+  host: 'week6-tarea.onrender.com',
+  schemes: ['https']
 };
 
 const outputFile = 'swagger.json';
