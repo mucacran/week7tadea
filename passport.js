@@ -2,13 +2,16 @@ const mongoose = require('mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const User = require('./models/User')
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 module.exports = function (passport) {
   passport.use(
     new GoogleStrategy(
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: '/auth/google/callback',
+        callbackURL: 'http://localhost:8080/auth/google/callback',
       },
       async (accessToken, refreshToken, profile, done) => {
         const newUser = {
@@ -42,8 +45,19 @@ module.exports = function (passport) {
   // passport.deserializeUser((id, done) => {
   //   User.findById(id, (err, user) => done(err, user))
   // })
+  /***************/
+  // passport.deserializeUser((id, done) => {
+  //   User.findById(mongoose.Types.ObjectId(id), (err, user) => done(err, user))
+  // })
   passport.deserializeUser((id, done) => {
-    User.findById(mongoose.Types.ObjectId(id), (err, user) => done(err, user))
-  })
+    console.log("deserializeUser id:",id);
+    if (!/^[0-9a-fA-F]{24}$/.test(id)) {
+      return done(new Error('Invalid user ID'));
+    }
+    User.findById(id, (err, user) => {
+      done(err, user);
+    });
+  });
+  
   
 }
