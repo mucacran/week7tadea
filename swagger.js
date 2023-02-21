@@ -2,10 +2,10 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API - Week 6',
+    title: 'My API - Week 7',
     description: 'Poder trabajar'
   },
-  host: 'week6-tarea.onrender.com',
+  host: 'https://week7tarea.onrender.com',
   schemes: ['https']
 };
 
