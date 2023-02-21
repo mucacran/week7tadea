@@ -23,7 +23,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "https://week7tarea.onrender.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     // Aquí se realiza la lógica para guardar o recuperar el usuario en la base de datos
@@ -33,7 +33,7 @@ passport.use(new GoogleStrategy({
 /* Fin de la coneccion con google */
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = 8080;
 
 
 /************************* */
