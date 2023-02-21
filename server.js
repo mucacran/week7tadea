@@ -40,9 +40,6 @@ const port = process.env.PORT || 8080;
 // Middleware de sesiones
 app.use(
   session({
-    /*secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true*/
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,

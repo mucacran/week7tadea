@@ -54,7 +54,7 @@ module.exports = function (passport) {
     if (!/^[0-9a-fA-F]{24}$/.test(id)) {
       return done(new Error('Invalid user ID'));
     }
-    User.findById(id, (err, user) => {
+    User.findById(mongoose.Types.ObjectId(id), (err, user) => {
       done(err, user);
     });
   });
